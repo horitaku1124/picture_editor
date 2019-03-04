@@ -1,3 +1,5 @@
+import util.BinaryReader;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,7 +14,7 @@ public class CR2Reader {
     int HEIGHT = 0x0101;
   }
   public static void main(String[] args) {
-    final String fileName = "IMG_2631.CR2";
+    final String fileName = "./images/IMG_2631.CR2";
 
     File file = new File(fileName);
     ByteBuffer bb = ByteBuffer.allocate((int)file.length());

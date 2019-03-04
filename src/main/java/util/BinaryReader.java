@@ -1,6 +1,7 @@
+package util;
 
 public class BinaryReader {
-  enum Endian {
+  public enum Endian {
     Little,
     Big
   }
