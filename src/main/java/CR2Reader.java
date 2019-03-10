@@ -8,11 +8,9 @@ import java.nio.ByteBuffer;
 public class CR2Reader {
   interface IFD_TAG_TYPE {
     int SHORT = 3;
+    int LONG = 4;
   }
-  interface IFD_TAG_ID {
-    int WIDTH = 0x0100;
-    int HEIGHT = 0x0101;
-  }
+
   public static void main(String[] args) {
     final String fileName = "./images/IMG_2631.CR2";
 
@@ -78,9 +76,9 @@ public class CR2Reader {
         if (tagType == IFD_TAG_TYPE.SHORT) {
           tagData = binRead.bytesToUnsignedShort(allData, offset + 8);
         }
-        if (tagId == IFD_TAG_ID.WIDTH) {
+        if (tagId == IFD_TAG.WIDTH) {
           System.out.format("ifd0.width=%d\n", tagData);
-        } else if (tagId == IFD_TAG_ID.HEIGHT) {
+        } else if (tagId == IFD_TAG.HEIGHT) {
           System.out.format("ifd0.height=%d\n", tagData);
         }
 //                System.out.format("tagId=%04x tagType=%d tagValue=%d tagData=%d\n", tagId, tagType, tagValue, tagData);
